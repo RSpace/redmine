@@ -1,7 +1,8 @@
 # Korean translations for Ruby on Rails 
-# by Kihyun Yoon(ddumbugie@gmail.com)
+# by Kihyun Yoon(ddumbugie@gmail.com),http://plenum.textcube.com/
 # by John Hwang (jhwang@tavon.org),http://github.com/tavon
-# last update at 2009-09-11 by Yonghwan SO
+# by Yonghwan SO(please insert your email), last update at 2009-09-11
+# last update at 2009-09-11 by Kihyun Yoon
 ko:
   date:
     formats:
@@ -63,6 +64,9 @@ ko:
       over_x_years:
         one:   "일년 이상"
         other: "{{count}}년 이상"
+      almost_x_years:
+        one:   "almost 1 year"
+        other: "almost {{count}} years"
     prompts:
       year:   "년"
       month:  "월"
@@ -272,7 +276,6 @@ ko:
   field_homepage: 홈페이지
   field_is_public: 공개
   field_parent: 상위 프로젝트
-  field_is_in_chlog: 일감 변경이력에 표시
   field_is_in_roadmap: 로드맵에 표시
   field_login: 로그인
   field_mail_notification: 메일 알림
@@ -336,7 +339,7 @@ ko:
   setting_bcc_recipients: 참조자들을 bcc로 숨기기
   setting_plain_text_mail: 텍스트만 (HTML 없이)
   setting_host_name: 호스트 이름과 경로
-  setting_text_formatting: 편집 방식
+  setting_text_formatting: 본문 형식
   setting_wiki_compression: 위키 이력 압축
   setting_feeds_limit: 피드에 포함할 항목의 수
   setting_default_projects_public: 새 프로젝트를 공개로 설정
@@ -480,9 +483,9 @@ ko:
   label_login_with_open_id_option: 또는 OpenID로 로그인
   label_password_lost: 비밀번호 찾기
   label_home: 초기화면
-  label_my_page: 내페이지
-  label_my_account: 내계정
-  label_my_projects: 나의 프로젝트
+  label_my_page: 내 페이지
+  label_my_account: 내 계정
+  label_my_projects: 내 프로젝트
   label_administration: 관리
   label_login: 로그인
   label_logout: 로그아웃
@@ -513,8 +516,8 @@ ko:
   label_text: 텍스트
   label_attribute: 속성
   label_attribute_plural: 속성
-  label_download: "{{count}} 다운로드"
-  label_download_plural: "{{count}} 다운로드"
+  label_download: "{{count}}회 다운로드"
+  label_download_plural: "{{count}}회 다운로드"
   label_no_data: 표시할 데이터가 없습니다.
   label_change_status: 상태 변경
   label_history: 이력
@@ -531,7 +534,6 @@ ko:
   label_news_latest: 최근 뉴스
   label_news_view_all: 모든 뉴스
   label_news_added: 뉴스 추가
-  label_change_log: 변경 이력
   label_settings: 설정
   label_overview: 개요
   label_version: 버전
@@ -547,8 +549,8 @@ ko:
   label_closed_issues_plural: 완료됨
   label_x_open_issues_abbr_on_total:
     zero:  "총 {{total}} 건 모두 완료"
-    one:   "총 {{total}} 건 중 한 건 진행 중"
-    other: "총 {{total}} 건 중 {{count}} 건 진행 중"
+    one:   "한 건 진행 중 / 총 {{total}} 건 중 "
+    other: "{{count}} 건 진행 중 / 총 {{total}} 건"
   label_x_open_issues_abbr:
     zero:  모두 완료
     one:   한 건 진행 중
@@ -565,7 +567,7 @@ ko:
   label_none: 없음
   label_nobody: 미지정
   label_next: 다음
-  label_previous: 이전
+  label_previous: 뒤로
   label_used_by: 사용됨
   label_details: 자세히
   label_add_note: 일감덧글 추가
@@ -616,7 +618,7 @@ ko:
   label_day_plural: 일
   label_repository: 저장소
   label_repository_plural: 저장소
-  label_browse: 저장소 살피기
+  label_browse: 저장소 둘러보기
   label_modification: "{{count}} 변경"
   label_modification_plural: "{{count}} 변경"
   label_revision: 개정판
@@ -698,7 +700,7 @@ ko:
   label_message_new: 새글쓰기
   label_message_posted: 글 추가
   label_reply_plural: 답글
-  label_send_information: 사용자에게 계정정보를 보냄
+  label_send_information: 사용자에게 계정정보를 보내기
   label_year: 년
   label_month: 월
   label_week: 주
@@ -728,7 +730,7 @@ ko:
   label_registration_activation_by_email: 메일로 계정을 활성화하기
   label_registration_automatic_activation: 자동 계정 활성화
   label_registration_manual_activation: 수동 계정 활성화
-  label_display_per_page: "페이지당: {{value}}"
+  label_display_per_page: "페이지당 줄수: {{value}}"
   label_age: 마지막 수정일
   label_change_properties: 속성 변경
   label_general: 일반
@@ -768,7 +770,7 @@ ko:
   button_add: 추가
   button_change: 변경
   button_apply: 적용
-  button_clear: 초기화
+  button_clear: 지우기
   button_lock: 잠금
   button_unlock: 잠금해제
   button_download: 다운로드
@@ -780,15 +782,15 @@ ko:
   button_activate: 활성화
   button_sort: 정렬
   button_log_time: 작업시간 기록
-  button_rollback: 이 버전으로 롤백
+  button_rollback: 이 버전으로 되돌리기
   button_watch: 지켜보기
   button_unwatch: 관심끄기
   button_reply: 답글
   button_archive: 잠금보관
   button_unarchive: 잠금보관해제
-  button_reset: 리셋
-  button_rename: 이름변경
-  button_change_password: 비밀번호 변경
+  button_reset: 초기화
+  button_rename: 이름바꾸기
+  button_change_password: 비밀번호 바꾸기
   button_copy: 복사
   button_annotate: 이력해설
   button_update: 수정
@@ -815,7 +817,7 @@ ko:
   text_length_between: "{{min}} 에서 {{max}} 글자"
   text_tracker_no_workflow: 이 일감 유형에는 업무흐름이 정의되지 않았습니다.
   text_unallowed_characters: 허용되지 않는 문자열
-  text_comma_separated: 복수의 값들이 허용됩니다.(구분자 ,)
+  text_comma_separated: "구분자','를 이용해서 여러 개의 값을 입력할 수 있습니다."
   text_issues_ref_in_commit_messages: 제출 메시지에서 일감을 참조하거나 해결하기
   text_issue_added: "{{author}}이(가) 일감 {{id}}을(를) 보고하였습니다."
   text_issue_updated: "{{author}}이(가) 일감 {{id}}을(를) 수정하였습니다."
@@ -823,8 +825,8 @@ ko:
   text_issue_category_destroy_question: "일부 일감들({{count}}개)이 이 범주에 지정되어 있습니다. 어떻게 하시겠습니까?"
   text_issue_category_destroy_assignments: 범주 지정 지우기
   text_issue_category_reassign_to: 일감을 이 범주에 다시 지정하기
-  text_user_mail_option: "선택하지 않은 프로젝트에서도, 모니터링 중이거나 속해있는 사항(일감을 발행했거나 할당된 경우)이 있으면 알림메일을 받게 됩니다."
-  text_no_configuration_data: "역할, 일감 유형, 일감 상태들과 업무흐름이 아직 설정되지 않았습니다.\n기본 설정을 읽어드리는 것을 권장합니다. 읽어들인 후에 수정할 수 있습니다."
+  text_user_mail_option: "선택하지 않은 프로젝트에서도, 지켜보는 중이거나 속해있는 사항(일감을 발행했거나 할당된 경우)이 있으면 알림메일을 받게 됩니다."
+  text_no_configuration_data: "역할, 일감 유형, 일감 상태들과 업무흐름이 아직 설정되지 않았습니다.\n기본 설정을 읽어들이는 것을 권장합니다. 읽어들인 후에 수정할 수 있습니다."
   text_load_default_configuration: 기본 설정을 읽어들이기
   text_status_changed_by_changeset: "변경묶음 {{value}}에 의하여 변경됨"
   text_issues_destroy_confirmation: '선택한 일감을 정말로 삭제하시겠습니까?'
@@ -843,21 +845,21 @@ ko:
   text_email_delivery_not_configured: "이메일 전달이 설정되지 않았습니다. 그래서 알림이 비활성화되었습니다.\n SMTP서버를 config/email.yml에서 설정하고 어플리케이션을 다시 시작하십시오. 그러면 동작합니다."
   text_repository_usernames_mapping: "저장소 로그에서 발견된 각 사용자에 레드마인 사용자를 업데이트할때 선택합니다.\n레드마인과 저장소의 이름이나 이메일이 같은 사용자가 자동으로 연결됩니다."
   text_diff_truncated: '... 이 차이점은 표시할 수 있는 최대 줄수를 초과해서 이 차이점은 잘렸습니다.'
-  text_custom_field_possible_values_info: '각 값당 한 줄'
+  text_custom_field_possible_values_info: '각 값 당 한 줄'
   text_wiki_page_destroy_question: 이 페이지는 {{descendants}} 개의 하위 페이지와 관련 내용이 있습니다. 이 내용을 어떻게 하시겠습니까?
-  text_wiki_page_nullify_children: 하위 페이지를 루트 페이지 아래로 지정
+  text_wiki_page_nullify_children: 하위 페이지를 최상위 페이지 아래로 지정
   text_wiki_page_destroy_children: 모든 하위 페이지와 관련 내용을 삭제
   text_wiki_page_reassign_children: 하위 페이지를 이 페이지 아래로 지정
   
   default_role_manager: 관리자
   default_role_developper: 개발자
   default_role_reporter: 보고자
-  default_tracker_bug: 버그
-  default_tracker_feature: 기능
+  default_tracker_bug: 결함
+  default_tracker_feature: 새기능
   default_tracker_support: 지원
-  default_issue_status_new: 새로움
-  default_issue_status_assigned: 할당됨
-  default_issue_status_resolved: 해결됨
+  default_issue_status_new: 신규
+  default_issue_status_in_progress: 진행
+  default_issue_status_resolved: 해결
   default_issue_status_feedback: 의견
   default_issue_status_closed: 완료
   default_issue_status_rejected: 거절
@@ -875,16 +877,68 @@ ko:
   enumeration_doc_categories: 문서 범주
   enumeration_activities: 작업분류(시간추적)
 
-  field_issue_to: Related issue
+  field_issue_to: 관련 일감
   label_view_all_revisions: 모든 개정판 표시
-  label_tag: 태그
-  label_branch: 브랜치
+  label_tag: 표지(票識)저장소
+  label_branch: 분기(分岐)저장소
   error_no_tracker_in_project: 사용할 수 있도록 설정된 일감 유형이 없습니다. 프로젝트 설정을 확인하십시오.
   error_no_default_issue_status: '기본 상태가 정해져 있지 않습니다. 설정을 확인하십시오. (주 메뉴의 "관리" -> "일감 상태")'
-  text_journal_changed: "{{label}}을(를) {{old}}에서 {{new}}(으)로 변경함"
-  text_journal_set_to: "{{label}}을(를) {{value}}(으)로 정함"
-  text_journal_deleted: "{{label}}을(를) 지움"
+  text_journal_changed: "{{label}}을(를) {{old}}에서 {{new}}(으)로 변경되었습니다."
+  text_journal_set_to: "{{label}}을(를) {{value}}(으)로 지정되었습니다."
+  text_journal_deleted: "{{label}} 값이 지워졌습니다. ({{old}})"
   label_group_plural: 그룹
   label_group: 그룹
   label_group_new: 새 그룹
-  label_time_entry_plural: Spent time
+  label_time_entry_plural: 작업시간
+  text_journal_added: "{{label}}에 {{value}}이(가) 추가되었습니다."
+  field_active: 사용중
+  enumeration_system_activity: 시스템 작업
+  permission_delete_issue_watchers: 일감지킴이 지우기
+  version_status_closed: 닫힘
+  version_status_locked: 잠김
+  version_status_open: 진행
+  error_can_not_reopen_issue_on_closed_version: 닫힌 버전에 할당된 일감은 다시 재발생시킬 수 없습니다.
+  label_user_anonymous: 이름없음
+  button_move_and_follow: 이동하고 따라가기
+  setting_default_projects_modules: 새 프로젝트에 기본적으로 활성화될 모듈
+  setting_gravatar_default: 기본 그라바타 이미지
+  field_sharing: 공유
+  label_version_sharing_hierarchy: 상위 및 하위 프로젝트
+  label_version_sharing_system: 모든 프로젝트
+  label_version_sharing_descendants: 하위 프로젝트
+  label_version_sharing_tree: 최상위 및 모든 하위 프로젝트
+  label_version_sharing_none: 공유없음
+  error_can_not_archive_project: 이 프로젝트를 잠금보관할 수 없습니다.
+  button_duplicate: 복제
+  button_copy_and_follow: 복사하고 따라가기
+  label_copy_source: 원본
+  setting_issue_done_ratio: 일감의 진척도 계산방법
+  setting_issue_done_ratio_issue_status: 일감 상태를 사용하기
+  error_issue_done_ratios_not_updated: 일감 진척도가 수정되지 않았습니다.
+  error_workflow_copy_target: 대상 일감유형과 역할을 선택하세요.
+  setting_issue_done_ratio_issue_field: 일감 수정에서 진척도 입력하기
+  label_copy_same_as_target: 대상과 같음.
+  label_copy_target: 대상
+  notice_issue_done_ratios_updated: 일감 진척도가 수정되었습니다.
+  error_workflow_copy_source: 원본 일감유형이나 역할을 선택하세요.
+  label_update_issue_done_ratios: 모든 일감 진척도 갱신하기
+  setting_start_of_week: 달력 시작 요일
+  permission_view_issues: 일감 보기
+  label_display_used_statuses_only: 이 일감유형에서 사용되는 상태만 보여주기
+  label_revision_id: Revision {{value}}
+  label_api_access_key: API access key
+  label_api_access_key_created_on: API access key created {{value}} ago
+  label_feeds_access_key: RSS access key
+  notice_api_access_key_reseted: Your API access key was reset.
+  setting_rest_api_enabled: Enable REST web service
+  label_missing_api_access_key: Missing an API access key
+  label_missing_feeds_access_key: Missing a RSS access key
+  button_show: Show
+  text_line_separated: Multiple values allowed (one line for each value).
+  setting_mail_handler_body_delimiters: Truncate emails after one of these lines
+  permission_add_subprojects: Create subprojects
+  label_subproject_new: New subproject
+  text_own_membership_delete_confirmation: |-
+    You are about to remove some or all of your permissions and may no longer be able to edit this project after that.
+    Are you sure you want to continue?
+  label_close_versions: Close completed versions

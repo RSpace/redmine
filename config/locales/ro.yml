@@ -57,6 +57,9 @@ ro:
       over_x_years:
         one:   "peste un an"
         other: "peste {{count}} ani"
+      almost_x_years:
+        one:   "almost 1 year"
+        other: "almost {{count}} years"
 
   number: 
     human: 
@@ -206,7 +209,6 @@ ro:
   field_homepage: Pagina principală
   field_is_public: Public
   field_parent: Sub-proiect al
-  field_is_in_chlog: Tichete afișate în jurnalul de activitate
   field_is_in_roadmap: Tichete afișate în plan
   field_login: Autentificare
   field_mail_notification: Notificări prin e-mail
@@ -461,7 +463,6 @@ ro:
   label_news_latest: Ultimele știri
   label_news_view_all: Afișează toate știrile
   label_news_added: Adăugat
-  label_change_log: Istoric
   label_settings: Setări
   label_overview: Pagină proiect
   label_version: Versiune
@@ -780,7 +781,7 @@ ro:
   default_tracker_feature: Funcție
   default_tracker_support: Suport
   default_issue_status_new: Nou
-  default_issue_status_assigned: Atribuit
+  default_issue_status_in_progress: In Progress
   default_issue_status_resolved: Rezolvat
   default_issue_status_feedback: Așteaptă reacții
   default_issue_status_closed: Închis
@@ -800,29 +801,81 @@ ro:
   enumeration_activities: Activități (timp de lucru)
   label_greater_or_equal: ">="
   label_less_or_equal: <=
-  text_wiki_page_destroy_question: This page has {{descendants}} child page(s) and descendant(s). What do you want to do?
-  text_wiki_page_reassign_children: Reassign child pages to this parent page
-  text_wiki_page_nullify_children: Keep child pages as root pages
-  text_wiki_page_destroy_children: Delete child pages and all their descendants
-  setting_password_min_length: Minimum password length
-  field_group_by: Group results by
-  mail_subject_wiki_content_updated: "'{{page}}' wiki page has been updated"
-  label_wiki_content_added: Wiki page added
-  mail_subject_wiki_content_added: "'{{page}}' wiki page has been added"
-  mail_body_wiki_content_added: The '{{page}}' wiki page has been added by {{author}}.
-  label_wiki_content_updated: Wiki page updated
-  mail_body_wiki_content_updated: The '{{page}}' wiki page has been updated by {{author}}.
-  permission_add_project: Create project
-  setting_new_project_user_role_id: Role given to a non-admin user who creates a project
-  label_view_all_revisions: View all revisions
+  text_wiki_page_destroy_question: Această pagină are {{descendants}} pagini anterioare și descendenți. Ce doriți să faceți?
+  text_wiki_page_reassign_children: Atribuie paginile la această pagină
+  text_wiki_page_nullify_children: Menține paginile ca și pagini inițiale (root)
+  text_wiki_page_destroy_children: Șterge paginile și descendenții
+  setting_password_min_length: Lungime minimă parolă
+  field_group_by: Grupează după
+  mail_subject_wiki_content_updated: "Pagina wiki '{{page}}' a fost actualizată"
+  label_wiki_content_added: Adăugat
+  mail_subject_wiki_content_added: "Pagina wiki '{{page}}' a fost adăugată"
+  mail_body_wiki_content_added: Pagina wiki '{{page}}' a fost adăugată de {{author}}.
+  label_wiki_content_updated: Actualizat
+  mail_body_wiki_content_updated: Pagina wiki '{{page}}' a fost actualizată de {{author}}.
+  permission_add_project: Crează proiect
+  setting_new_project_user_role_id: Rol atribuit utilizatorului non-admin care crează un proiect.
+  label_view_all_revisions: Arată toate reviziile
   label_tag: Tag
   label_branch: Branch
-  error_no_tracker_in_project: No tracker is associated to this project. Please check the Project settings.
-  error_no_default_issue_status: No default issue status is defined. Please check your configuration (Go to "Administration -> Issue statuses").
-  text_journal_changed: "{{label}} changed from {{old}} to {{new}}"
-  text_journal_set_to: "{{label}} set to {{value}}"
-  text_journal_deleted: "{{label}} deleted"
-  label_group_plural: Groups
-  label_group: Group
-  label_group_new: New group
-  label_time_entry_plural: Spent time
+  error_no_tracker_in_project: Nu există un tracker asociat cu proiectul. Verificați vă rog setările proiectului.
+  error_no_default_issue_status: Nu există un status implicit al tichetelor. Verificați vă rog configurația (Mergeți la "Administrare -> Stări tichete").
+  text_journal_changed: "{{label}} schimbat din {{old}} în {{new}}"
+  text_journal_set_to: "{{label}} setat ca {{value}}"
+  text_journal_deleted: "{{label}} șters ({{old}})"
+  label_group_plural: Grupuri
+  label_group: Grup
+  label_group_new: Grup nou
+  label_time_entry_plural: Timp alocat
+  text_journal_added: "{{label}} {{value}} added"
+  field_active: Active
+  enumeration_system_activity: System Activity
+  permission_delete_issue_watchers: Delete watchers
+  version_status_closed: closed
+  version_status_locked: locked
+  version_status_open: open
+  error_can_not_reopen_issue_on_closed_version: An issue assigned to a closed version can not be reopened
+  label_user_anonymous: Anonymous
+  button_move_and_follow: Move and follow
+  setting_default_projects_modules: Default enabled modules for new projects
+  setting_gravatar_default: Default Gravatar image
+  field_sharing: Sharing
+  label_version_sharing_hierarchy: With project hierarchy
+  label_version_sharing_system: With all projects
+  label_version_sharing_descendants: With subprojects
+  label_version_sharing_tree: With project tree
+  label_version_sharing_none: Not shared
+  error_can_not_archive_project: This project can not be archived
+  button_duplicate: Duplicate
+  button_copy_and_follow: Copy and follow
+  label_copy_source: Source
+  setting_issue_done_ratio: Calculate the issue done ratio with
+  setting_issue_done_ratio_issue_status: Use the issue status
+  error_issue_done_ratios_not_updated: Issue done ratios not updated.
+  error_workflow_copy_target: Please select target tracker(s) and role(s)
+  setting_issue_done_ratio_issue_field: Use the issue field
+  label_copy_same_as_target: Same as target
+  label_copy_target: Target
+  notice_issue_done_ratios_updated: Issue done ratios updated.
+  error_workflow_copy_source: Please select a source tracker or role
+  label_update_issue_done_ratios: Update issue done ratios
+  setting_start_of_week: Start calendars on
+  permission_view_issues: View Issues
+  label_display_used_statuses_only: Only display statuses that are used by this tracker
+  label_revision_id: Revision {{value}}
+  label_api_access_key: API access key
+  label_api_access_key_created_on: API access key created {{value}} ago
+  label_feeds_access_key: RSS access key
+  notice_api_access_key_reseted: Your API access key was reset.
+  setting_rest_api_enabled: Enable REST web service
+  label_missing_api_access_key: Missing an API access key
+  label_missing_feeds_access_key: Missing a RSS access key
+  button_show: Show
+  text_line_separated: Multiple values allowed (one line for each value).
+  setting_mail_handler_body_delimiters: Truncate emails after one of these lines
+  permission_add_subprojects: Create subprojects
+  label_subproject_new: New subproject
+  text_own_membership_delete_confirmation: |-
+    You are about to remove some or all of your permissions and may no longer be able to edit this project after that.
+    Are you sure you want to continue?
+  label_close_versions: Close completed versions

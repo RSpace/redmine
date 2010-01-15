@@ -18,6 +18,7 @@
 require 'diff'
 
 class WikiController < ApplicationController
+  default_search_scope :wiki_pages
   before_filter :find_wiki, :authorize
   before_filter :find_existing_page, :only => [:rename, :protect, :history, :diff, :annotate, :add_attachment, :destroy]
   
@@ -182,7 +183,8 @@ class WikiController < ApplicationController
       return      
     else
       # requested special page doesn't exist, redirect to default page
-      redirect_to :action => 'index', :id => @project, :page => nil and return
+      redirect_to :action => 'index', :id => @project, :page => nil
+      return
     end
     render :action => "special_#{page_title}"
   end

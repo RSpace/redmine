@@ -1,5 +1,5 @@
 # Redmine - project management software
-# Copyright (C) 2006-2008  Jean-Philippe Lang
+# Copyright (C) 2006-2009  Jean-Philippe Lang
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -20,24 +20,7 @@ class AccountController < ApplicationController
   include CustomFieldsHelper   
   
   # prevents login action to be filtered by check_if_login_required application scope filter
-  skip_before_filter :check_if_login_required, :only => [:login, :lost_password, :register, :activate]
-
-  # Show user's account
-  def show
-    @user = User.active.find(params[:id])
-    @custom_values = @user.custom_values
-    
-    # show only public projects and private projects that the logged in user is also a member of
-    @memberships = @user.memberships.select do |membership|
-      membership.project.is_public? || (User.current.member_of?(membership.project))
-    end
-    
-    events = Redmine::Activity::Fetcher.new(User.current, :author => @user).events(nil, nil, :limit => 10)
-    @events_by_day = events.group_by(&:event_date)
-    
-  rescue ActiveRecord::RecordNotFound
-    render_404
-  end
+  skip_before_filter :check_if_login_required
 
   # Login request and validation
   def login
@@ -84,9 +67,9 @@ class AccountController < ApplicationController
       if request.post?
         user = User.find_by_mail(params[:mail])
         # user not found in db
-        flash.now[:error] = l(:notice_account_unknown_email) and return unless user
+        (flash.now[:error] = l(:notice_account_unknown_email); return) unless user
         # user uses an external authentification
-        flash.now[:error] = l(:notice_can_t_change_password) and return if user.auth_source_id
+        (flash.now[:error] = l(:notice_can_t_change_password); return) if user.auth_source_id
         # create a new token for password recovery
         token = Token.new(:user => user, :action => "recovery")
         if token.save
@@ -154,14 +137,11 @@ class AccountController < ApplicationController
 
   def password_authentication
     user = User.try_to_login(params[:username], params[:password])
+
     if user.nil?
-      # Invalid credentials
-      flash.now[:error] = l(:notice_account_invalid_creditentials)
+      invalid_credentials
     elsif user.new_record?
-      # Onthefly creation failed, display the registration form to fill/fix attributes
-      @user = user
-      session[:auth_source_registration] = {:login => user.login, :auth_source_id => user.auth_source_id }
-      render :action => 'register'
+      onthefly_creation_failed(user, {:login => user.login, :auth_source_id => user.auth_source_id })
     else
       # Valid user
       successful_authentication(user)
@@ -227,6 +207,10 @@ class AccountController < ApplicationController
     @user = user
     session[:auth_source_registration] = auth_source_options unless auth_source_options.empty?
     render :action => 'register'
+  end
+
+  def invalid_credentials
+    flash.now[:error] = l(:notice_account_invalid_creditentials)
   end
 
   # Register a user for email activation.
